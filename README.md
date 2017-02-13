@@ -19,5 +19,6 @@ Here is an example call for a game where player 1 went in column 0, 3 and 3 and 
 1. The app must allow the player to choose whether they want to go first, or if they want our service to go first.
 1. If there is a win on either side, the app must display who won and let the player play again.
 1. If the board is full, the app must tell the user the game is a draw and let the player play again.
+1. Please use UIKit. No Unity/SpriteKit/etc.
 1. There must be unit tests.
 1. Think about ways this game could be extended in the future.
