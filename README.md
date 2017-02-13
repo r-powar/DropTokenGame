@@ -10,7 +10,7 @@ Drop Token takes place on a 4x4 grid. A token is dropped along a column (labeled
 ![samplegame](https://github.com/rafastealth/9dt-mobile/blob/master/sample_game.png)
 
 ## Our 9dt service
-We've designed a not-very-smart 9dt playing service. It takes a GET param called "moves" that is a JSON array of all the moves that have taken place from the beginning of the game and returns that array plus it's move. It will 400 when there's it's given an invalid set of moves - for example if a column has too many tokens in it - but it can not tell if the player has won or lost.
+We've designed a not-very-smart 9dt playing service. It takes a GET param called "moves" that is a JSON array of all the moves that have taken place from the beginning of the game and returns that array plus it's move. It will 400 when it's given an invalid set of moves - for example if a column has too many tokens in it - but it can not tell if the player has won or lost.
 
 Here is an example call for a game where player 1 went in column 0, 3 and 3 and player 2 went in column 0 and 2: 
 [https://w0ayb2ph1k.execute-api.us-west-2.amazonaws.com/production?moves=[0,0,3,2,3]](https://w0ayb2ph1k.execute-api.us-west-2.amazonaws.com/production?moves=%5B0,0,3,2,3%5D)
