@@ -27,3 +27,8 @@ Here is an example call for a game where player 1 went in column 0, 3 and 3 and 
 1. If the board is full, the app must tell the user the game is a draw and let the player play again.
 
 We're going to ask about how you architected the code, so think about ways this game could be extended in the future.
+
+## Submission Instructions
+Please send us the code by midnight the day prior to the interview to give us time to review it before the interview.
+
+To submit the source code, the easiest way is to share a private Github or BitBucket repository with us (we will send you the appropriate usernames). Alternatively, we can accept compressed tarballs or zip archives. We cannot accept those over email, though, so we recommend a file sharing service like Google Drive, Dropbox, or similar.
