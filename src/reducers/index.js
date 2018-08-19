@@ -2,8 +2,10 @@
  * Created by rpowar on 8/13/18.
  */
 import {combineReducers} from 'redux';
-import gameReducer from './gameReducers';
+import boardReducer from './boardReducer';
 
-export default combineReducers({
-    gameReducer
+const rootReducer = combineReducers({
+    board: boardReducer
 });
+
+export default rootReducer;
