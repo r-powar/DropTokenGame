@@ -2,6 +2,7 @@
  * Created by rpowar on 8/13/18.
  */
 import * as types from './types';
+import utils from '../utils/utilities';
 
 export function initGame(){
     return function(dispatch){
@@ -12,11 +13,17 @@ export function initGame(){
 }
 
 export  function dropTile(colVal) {
-    return function(dispatch){
+    return function(dispatch, getState){
+        const currState = getState().board;
+        console.log(currState);
+
         dispatch({
             type: types.DROP_TILE,
             payload: colVal
-        })
+        });
+
+        let result = utils.checkGameCondition(currState.board, currState.boardRowSize, currState.boardColSize);
+        console.log(result);
     }
 }
 

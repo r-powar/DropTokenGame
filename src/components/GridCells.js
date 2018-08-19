@@ -37,7 +37,7 @@ class GridCells extends Component {
         super(props);
     }
 
-    componentWillMount() {
+    componentDidMount() {
         this.props.initGame();
     }
 
