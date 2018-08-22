@@ -1,22 +1,33 @@
 import React, {Component} from 'react';
 import logo from './logo.svg';
 import './App.css';
-import GameContainer from './components/GameContainer';
+import {connect} from 'react-redux';
+import GameContainer from './components/containers/GameContainer';
+import StartGameContainer from './components/containers/StartGameContainer';
+import MessageContainer from './components/containers/MessageContainer';
 
 class App extends Component {
+
     render() {
         return (
             <div className="App">
                 <header className="App-header">
                     <img src={logo} className="App-logo" alt="logo"/>
-                    <h1 className="App-title">Welcome to React</h1>
+                    <h1 className="App-title">98point6 Drop Token</h1>
                 </header>
 
-                <GameContainer/>
+                <StartGameContainer />
+                {this.props.display ? <GameContainer/> : null}
+                {this.props.message ? <MessageContainer/> : null}
 
             </div>
         );
     }
 }
 
-export default App;
+const mapStateToProps = state => ({
+    display: state.boardGame.gameStatus,
+    message: state.boardGame.message
+});
+
+export default connect(mapStateToProps)(App);

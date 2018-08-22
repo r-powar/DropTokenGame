@@ -6,11 +6,11 @@ import utils from '../utils/utilities';
 import initialState from './initialState';
 
 
-const initializeGame = (state = initialState, action) => {
+const boardGame = (state = initialState, action) => {
     switch (action.type) {
         case types.INIT_GAME:
             let boardCells = utils.populateBoard(state.boardRowSize, state.boardColSize);
-            return Object.assign({}, state, {board: state.board.concat(boardCells), currentPlayer: state.player1});
+            return Object.assign({}, state, {board: state.board.concat(boardCells)});
 
         case types.DROP_TILE:
             let currPick = state.currentPlayer;
@@ -24,13 +24,26 @@ const initializeGame = (state = initialState, action) => {
             newMoves.push(currCol);
 
             //switch player
-            let togglePlayer = state.currentPlayer === state.player1 ? state.player2 : state.player1;
+            let togglePlayer = currPick === state.player1 ? state.player2 : state.player1;
 
             return Object.assign({}, state, {board: newBoard, currentPlayer: togglePlayer, moves: newMoves});
+
+        case types.SET_PLAYER:
+            let player = action.payload;
+            let gameStatus = true;
+            return Object.assign({}, state, {currentPlayer: player, gameStatus: gameStatus});
+
+        case types.GAME_OVER:
+            let message = action.payload;
+            return Object.assign({}, state, {message: message, currentPlayer:null});
+
+        case types.RESTART:
+            return {...initialState};
+
         default:
             return state;
     }
 
 };
 
-export default initializeGame;
+export default boardGame;
