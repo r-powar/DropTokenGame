@@ -24,7 +24,7 @@
 
 .game {
     padding: 15px;
-    margin-top: 70px;
+    margin-top: 30px;
 }
 
 .cells {
@@ -59,6 +59,29 @@ table {
     margin: 0 auto;
     border-spacing: 0px 0px;
 
+}
+
+.startGame {
+    margin-top: 25px;
+}
+
+.startGame button{
+    margin-left: 5px;
+}
+
+button{
+    background-color: #303030;
+    color: #50C8FF;
+    height: 30px;
+    width: 100px;
+    border-radius: 5px;
+    margin: 0 auto;
+    margin-bottom: 25px;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: background-color 0.5s, color 0.5s;
 }
 
 @keyframes App-logo-spin {

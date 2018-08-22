@@ -1,41 +1,14 @@
 /**
  * Created by rpowar on 8/13/18.
+ *
+ * Populate the grid with this component
+ *
  */
 import React, {Component} from 'react';
+import RowCells from '../components/RowCells';
 
-const Cell = ({val, colIndex, pickCol}) => {
-    let cellColor;
-    if (val === 1) {
-        cellColor = 'red';
-    } else if (val === 2) {
-        cellColor = 'blue';
-    } else {
-        cellColor = 'white';
-    }
-    return (
-        <td>
-            <div className="cells" onClick={() => {
-                pickCol(colIndex)
-            }}>
-                <div className={cellColor}>
-                </div>
-            </div>
-        </td>
-    );
-
-};
-const Row = ({row, select}) => {
-    return (
-        <tr>
-            {row.map((cell, i) => <Cell key={i} val={cell} colIndex={i} pickCol={select}/>)}
-        </tr>
-    );
-};
 
 class GridCells extends Component {
-    constructor(props) {
-        super(props);
-    }
 
     componentDidMount() {
         this.props.initGame();
@@ -49,12 +22,13 @@ class GridCells extends Component {
                     </thead>
                     <tbody>
                     {this.props.board.map((row, i) => (
-                        <Row key={i} row={row} select={this.props.selectCol}/>
+                        <RowCells key={i} row={row} select={this.props.selectCol} message={this.props.message}/>
                     ))}
                     </tbody>
                 </table>
             </div>
         )
+
     }
 }
 

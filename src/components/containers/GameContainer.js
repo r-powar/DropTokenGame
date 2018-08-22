@@ -1,10 +1,11 @@
-import GridCells from './GridCells';
+import GridCells from '../GridCells';
 import {connect} from 'react-redux';
-import * as allActions from '../actions/gameActions';
+import * as allActions from '../../actions/gameActions';
 
 const mapStateToProps = state => (
     {
-        board: state.board.board,
+        board: state.boardGame.board,
+        message: state.boardGame.message
     }
 );
 
