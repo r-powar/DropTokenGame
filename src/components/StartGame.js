@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import PropTypes from 'prop-types';
 
 class StartGame extends Component{
     constructor(props){
@@ -29,5 +30,9 @@ class StartGame extends Component{
         )
     }
 }
+
+StartGame.propTypes = {
+    pickPlayer: PropTypes.func.isRequired
+};
 
 export default StartGame;

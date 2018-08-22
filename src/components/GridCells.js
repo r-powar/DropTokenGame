@@ -6,6 +6,7 @@
  */
 import React, {Component} from 'react';
 import RowCells from '../components/RowCells';
+import PropTypes from 'prop-types';
 
 
 class GridCells extends Component {
@@ -31,5 +32,10 @@ class GridCells extends Component {
 
     }
 }
+
+GridCells.propTypes = {
+  initGame:  PropTypes.func.isRequired,
+  board: PropTypes.array.isRequired
+};
 
 export default GridCells;

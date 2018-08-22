@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import PropTypes from 'prop-types';
 
 //function for each individual cell
 const Cell = ({val, colIndex, pickCol, gameEnd}) => {
@@ -36,5 +37,10 @@ class RowCells extends Component{
     }
 
 }
+
+RowCells.propTypes = {
+    gameEnd: PropTypes.string,
+    pickCol: PropTypes.func
+};
 
 export default RowCells;
