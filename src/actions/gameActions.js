@@ -40,12 +40,20 @@ export function initGame() {
 
 export function dropTile(colVal) {
     return function (dispatch, getState) {
+        //Repeat this at bottom before the service call
         const currState = getState().boardGame;
         let result;
 
+        dispatch({
+            type: types.DROP_TILE,
+            payload: colVal
+        });
+
+
         if (currState.currentPlayer === 1) {
             let url = new URL(dtService);
-            let params = {moves: currState.moves};
+            let moves = getState().boardGame.moves;
+            let params = {moves: moves};
             Object.keys(params).forEach(key => url.searchParams.append(key, JSON.stringify(params[key])));
 
             fetch(url.href)
@@ -71,13 +79,6 @@ export function dropTile(colVal) {
                         }
                     }
                 });
-        }
-
-        if (currState.currentPlayer !== 2) {
-            dispatch({
-                type: types.DROP_TILE,
-                payload: colVal
-            });
 
             result = utils.checkGameCondition(currState.board, currState.boardRowSize, currState.boardColSize);
             if (result) {
@@ -86,7 +87,13 @@ export function dropTile(colVal) {
                     payload: result
                 });
             }
+
+
         }
+
+
+
+
     }
 }
 
@@ -99,10 +106,10 @@ export function setPlayer(player) {
     }
 }
 
-export function restartGame(){
+export function restartGame() {
     return function (dispatch) {
         dispatch({
-            type:types.RESTART
+            type: types.RESTART
         })
     }
 }
